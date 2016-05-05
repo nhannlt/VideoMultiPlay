@@ -7,13 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "VideoPlayerViewController.h"
-
+#import "ViewAVPlayer.h"
+#import <AVFoundation/AVFoundation.h>
 @interface VideoPlayerNSOperation : NSOperation
 
 @property (strong, nonatomic) NSURL* videoUrl;
 
-@property (strong, nonatomic) VideoPlayerViewController* videoPlayerVC;
+@property (strong, nonatomic) ViewAVPlayer* viewAVPlayer;
 
 /**
  *  Description: Init NSOperation with video URL to download it.

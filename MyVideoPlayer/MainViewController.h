@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "VideoPlayerNSOperation.h"
+#import "ViewAVPlayer.h"
 
 @interface MainViewController : UIViewController
 

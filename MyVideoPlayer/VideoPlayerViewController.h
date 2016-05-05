@@ -15,12 +15,16 @@
 
 #import <UIKit/UIKit.h>
 
+@class VideoData;
+
 @interface VideoPlayerViewController : UIViewController 
 
 @property (nonatomic, copy) NSURL *URL;
 
 - (BOOL)isVideoLoaded;
 
--(void)pauseOrPlayVideo;
+-(void)pauseOrPlayVideo:(VideoData*)videoData;
+
+- (void)releaseData;
 
 @end

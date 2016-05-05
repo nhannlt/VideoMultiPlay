@@ -21,14 +21,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-//    self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
-//    
-//    MainViewController *viewController = [[MainViewController alloc] init];
-//    self.window.rootViewController = viewController;
-//    [viewController release];
-//    
-//    [self.window makeKeyAndVisible];
-    
     return YES;
 }
 

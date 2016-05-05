@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		694E105F1CD352D300FBC7FA /* TableCellVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = 694E105E1CD352D300FBC7FA /* TableCellVideo.m */; };
-		694E10611CD352E200FBC7FA /* TableCellVideo.xib in Resources */ = {isa = PBXBuildFile; fileRef = 694E10601CD352E200FBC7FA /* TableCellVideo.xib */; };
+		694E105F1CD352D300FBC7FA /* VideoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 694E105E1CD352D300FBC7FA /* VideoTableViewCell.m */; };
+		698A18051CDB083800D41FE3 /* ViewAVPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 698A18041CDB083800D41FE3 /* ViewAVPlayer.m */; };
+		698A18081CDB235400D41FE3 /* VideoData.m in Sources */ = {isa = PBXBuildFile; fileRef = 698A18071CDB235400D41FE3 /* VideoData.m */; };
+		698A18131CDB4F6000D41FE3 /* VideoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 698A18111CDB4F6000D41FE3 /* VideoTableViewCell.xib */; };
 		69E9D7671CD9EA69004D2975 /* VideoPlayerNSOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E9D7661CD9EA69004D2975 /* VideoPlayerNSOperation.m */; };
 		69E9D7691CDA11B1004D2975 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69E9D7681CDA11B1004D2975 /* Main.storyboard */; };
 		69E9D76B1CDA127D004D2975 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69E9D76A1CDA127D004D2975 /* Launch Screen.storyboard */; };
@@ -18,8 +20,6 @@
 		6D094BA014BCF4C70097E75B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6D094B9E14BCF4C70097E75B /* InfoPlist.strings */; };
 		6D094BA214BCF4C70097E75B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D094BA114BCF4C70097E75B /* main.m */; };
 		6D094BA614BCF4C70097E75B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D094BA514BCF4C70097E75B /* AppDelegate.m */; };
-		6D094BB014BCF4EA0097E75B /* VideoPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D094BAD14BCF4EA0097E75B /* VideoPlayerView.m */; };
-		6D094BB114BCF4EA0097E75B /* VideoPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D094BAF14BCF4EA0097E75B /* VideoPlayerViewController.m */; };
 		6D094BB614BCF7B10097E75B /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D094BB514BCF7B00097E75B /* MainViewController.m */; };
 		6D094BB914BCF86E0097E75B /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D094BB714BCF86D0097E75B /* CoreMedia.framework */; };
 		6D094BBA14BCF86E0097E75B /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D094BB814BCF86D0097E75B /* MediaPlayer.framework */; };
@@ -28,9 +28,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		694E105D1CD352D300FBC7FA /* TableCellVideo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableCellVideo.h; sourceTree = "<group>"; };
-		694E105E1CD352D300FBC7FA /* TableCellVideo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableCellVideo.m; sourceTree = "<group>"; };
-		694E10601CD352E200FBC7FA /* TableCellVideo.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableCellVideo.xib; sourceTree = "<group>"; };
+		694E105D1CD352D300FBC7FA /* VideoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoTableViewCell.h; sourceTree = "<group>"; };
+		694E105E1CD352D300FBC7FA /* VideoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoTableViewCell.m; sourceTree = "<group>"; };
+		698A18031CDB083800D41FE3 /* ViewAVPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewAVPlayer.h; sourceTree = "<group>"; };
+		698A18041CDB083800D41FE3 /* ViewAVPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewAVPlayer.m; sourceTree = "<group>"; };
+		698A18061CDB235400D41FE3 /* VideoData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoData.h; sourceTree = "<group>"; };
+		698A18071CDB235400D41FE3 /* VideoData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoData.m; sourceTree = "<group>"; };
+		698A18111CDB4F6000D41FE3 /* VideoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoTableViewCell.xib; sourceTree = "<group>"; };
 		69E9D7651CD9EA69004D2975 /* VideoPlayerNSOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoPlayerNSOperation.h; sourceTree = "<group>"; };
 		69E9D7661CD9EA69004D2975 /* VideoPlayerNSOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoPlayerNSOperation.m; sourceTree = "<group>"; };
 		69E9D7681CDA11B1004D2975 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -45,10 +49,6 @@
 		6D094BA314BCF4C70097E75B /* MyVideoPlayer-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MyVideoPlayer-Prefix.pch"; sourceTree = "<group>"; };
 		6D094BA414BCF4C70097E75B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6D094BA514BCF4C70097E75B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		6D094BAC14BCF4EA0097E75B /* VideoPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoPlayerView.h; sourceTree = "<group>"; };
-		6D094BAD14BCF4EA0097E75B /* VideoPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoPlayerView.m; sourceTree = "<group>"; };
-		6D094BAE14BCF4EA0097E75B /* VideoPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoPlayerViewController.h; sourceTree = "<group>"; };
-		6D094BAF14BCF4EA0097E75B /* VideoPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoPlayerViewController.m; sourceTree = "<group>"; };
 		6D094BB414BCF7B00097E75B /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		6D094BB514BCF7B00097E75B /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		6D094BB714BCF86D0097E75B /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
@@ -74,6 +74,54 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		698A18091CDB23BB00D41FE3 /* Storyboard File */ = {
+			isa = PBXGroup;
+			children = (
+				69E9D7681CDA11B1004D2975 /* Main.storyboard */,
+				69E9D76A1CDA127D004D2975 /* Launch Screen.storyboard */,
+			);
+			name = "Storyboard File";
+			sourceTree = "<group>";
+		};
+		698A180B1CDB244300D41FE3 /* VideoTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				694E105D1CD352D300FBC7FA /* VideoTableViewCell.h */,
+				694E105E1CD352D300FBC7FA /* VideoTableViewCell.m */,
+				698A18111CDB4F6000D41FE3 /* VideoTableViewCell.xib */,
+			);
+			name = VideoTableViewCell;
+			sourceTree = "<group>";
+		};
+		698A180C1CDB245700D41FE3 /* MainViewController */ = {
+			isa = PBXGroup;
+			children = (
+				6D094BB414BCF7B00097E75B /* MainViewController.h */,
+				6D094BB514BCF7B00097E75B /* MainViewController.m */,
+			);
+			name = MainViewController;
+			sourceTree = "<group>";
+		};
+		698A180D1CDB247900D41FE3 /* ModelObject */ = {
+			isa = PBXGroup;
+			children = (
+				698A18061CDB235400D41FE3 /* VideoData.h */,
+				698A18071CDB235400D41FE3 /* VideoData.m */,
+			);
+			name = ModelObject;
+			sourceTree = "<group>";
+		};
+		698A180E1CDB248900D41FE3 /* Customize Player */ = {
+			isa = PBXGroup;
+			children = (
+				69E9D7651CD9EA69004D2975 /* VideoPlayerNSOperation.h */,
+				69E9D7661CD9EA69004D2975 /* VideoPlayerNSOperation.m */,
+				698A18031CDB083800D41FE3 /* ViewAVPlayer.h */,
+				698A18041CDB083800D41FE3 /* ViewAVPlayer.m */,
+			);
+			name = "Customize Player";
+			sourceTree = "<group>";
+		};
 		6D094B8614BCF4C60097E75B = {
 			isa = PBXGroup;
 			children = (
@@ -107,19 +155,14 @@
 		6D094B9B14BCF4C70097E75B /* MyVideoPlayer */ = {
 			isa = PBXGroup;
 			children = (
-				6D094BBF14BCF8FD0097E75B /* Player */,
+				698A180E1CDB248900D41FE3 /* Customize Player */,
+				698A180D1CDB247900D41FE3 /* ModelObject */,
+				698A180C1CDB245700D41FE3 /* MainViewController */,
+				698A180B1CDB244300D41FE3 /* VideoTableViewCell */,
+				698A18091CDB23BB00D41FE3 /* Storyboard File */,
 				6D094BA414BCF4C70097E75B /* AppDelegate.h */,
 				6D094BA514BCF4C70097E75B /* AppDelegate.m */,
-				6D094BB414BCF7B00097E75B /* MainViewController.h */,
-				6D094BB514BCF7B00097E75B /* MainViewController.m */,
-				694E105D1CD352D300FBC7FA /* TableCellVideo.h */,
-				694E105E1CD352D300FBC7FA /* TableCellVideo.m */,
-				694E10601CD352E200FBC7FA /* TableCellVideo.xib */,
-				69E9D7651CD9EA69004D2975 /* VideoPlayerNSOperation.h */,
-				69E9D7661CD9EA69004D2975 /* VideoPlayerNSOperation.m */,
 				6D094B9C14BCF4C70097E75B /* Supporting Files */,
-				69E9D7681CDA11B1004D2975 /* Main.storyboard */,
-				69E9D76A1CDA127D004D2975 /* Launch Screen.storyboard */,
 			);
 			path = MyVideoPlayer;
 			sourceTree = "<group>";
@@ -134,17 +177,6 @@
 				6D094BA314BCF4C70097E75B /* MyVideoPlayer-Prefix.pch */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		6D094BBF14BCF8FD0097E75B /* Player */ = {
-			isa = PBXGroup;
-			children = (
-				6D094BAC14BCF4EA0097E75B /* VideoPlayerView.h */,
-				6D094BAD14BCF4EA0097E75B /* VideoPlayerView.m */,
-				6D094BAE14BCF4EA0097E75B /* VideoPlayerViewController.h */,
-				6D094BAF14BCF4EA0097E75B /* VideoPlayerViewController.m */,
-			);
-			name = Player;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -173,7 +205,7 @@
 		6D094B8814BCF4C60097E75B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0730;
 			};
 			buildConfigurationList = 6D094B8B14BCF4C60097E75B /* Build configuration list for PBXProject "MyVideoPlayer" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -198,7 +230,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6D094BA014BCF4C70097E75B /* InfoPlist.strings in Resources */,
-				694E10611CD352E200FBC7FA /* TableCellVideo.xib in Resources */,
+				698A18131CDB4F6000D41FE3 /* VideoTableViewCell.xib in Resources */,
 				6D094BBE14BCF8BD0097E75B /* video_1.mp4 in Resources */,
 				69E9D76B1CDA127D004D2975 /* Launch Screen.storyboard in Resources */,
 				69E9D7691CDA11B1004D2975 /* Main.storyboard in Resources */,
@@ -212,12 +244,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				694E105F1CD352D300FBC7FA /* TableCellVideo.m in Sources */,
+				698A18051CDB083800D41FE3 /* ViewAVPlayer.m in Sources */,
+				694E105F1CD352D300FBC7FA /* VideoTableViewCell.m in Sources */,
 				6D094BA214BCF4C70097E75B /* main.m in Sources */,
+				698A18081CDB235400D41FE3 /* VideoData.m in Sources */,
 				6D094BA614BCF4C70097E75B /* AppDelegate.m in Sources */,
-				6D094BB014BCF4EA0097E75B /* VideoPlayerView.m in Sources */,
 				69E9D7671CD9EA69004D2975 /* VideoPlayerNSOperation.m in Sources */,
-				6D094BB114BCF4EA0097E75B /* VideoPlayerViewController.m in Sources */,
 				6D094BB614BCF7B10097E75B /* MainViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -240,11 +272,20 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -252,10 +293,15 @@
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
@@ -265,15 +311,27 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
@@ -288,6 +346,7 @@
 				GCC_PREFIX_HEADER = "MyVideoPlayer/MyVideoPlayer-Prefix.pch";
 				INFOPLIST_FILE = "MyVideoPlayer/MyVideoPlayer-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.demo.multiplayvideo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
@@ -301,6 +360,7 @@
 				GCC_PREFIX_HEADER = "MyVideoPlayer/MyVideoPlayer-Prefix.pch";
 				INFOPLIST_FILE = "MyVideoPlayer/MyVideoPlayer-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.demo.multiplayvideo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;

@@ -25,7 +25,7 @@ NSString * const kPlayableKey = @"playable";
 NSString * const kStatusKey         = @"status";
 NSString * const kCurrentItemKey	= @"currentItem";
 
-@interface VideoPlayerViewController ()
+@interface VideoPlayerViewController () <AVAssetResourceLoaderDelegate>
 
 @property (nonatomic, retain) AVPlayer *player;
 @property (nonatomic, retain) AVPlayerItem *playerItem;
@@ -87,18 +87,23 @@ static void *AVPlayerDemoPlaybackViewControllerStatusObservationContext = &AVPla
     [super dealloc];
 }
 
-- (BOOL)isVideoLoaded {
+- (void)releaseData {
 
-    if (_player != nil && _playerItem!= nil && _playerView!= nil && self.isPlaying == YES) {
-        return YES;
-    }
-    return NO;
-
+    [self.player removeObserver:self forKeyPath:kCurrentItemKey];
+    [self.player.currentItem removeObserver:self forKeyPath:kStatusKey];
+    [self.player pause];
+    
+    self.URL = nil;
+    self.player = nil;
+    self.playerItem = nil;
+    self.playerView = nil;
+    
 }
 
 #pragma mark - Private methods
 
 - (void)prepareToPlayAsset:(AVURLAsset *)asset withKeys:(NSArray *)requestedKeys {
+    
     for (NSString *thisKey in requestedKeys) {
 		NSError *error = nil;
 		AVKeyValueStatus keyStatus = [asset statusOfValueForKey:thisKey error:&error];
@@ -169,25 +174,27 @@ static void *AVPlayerDemoPlaybackViewControllerStatusObservationContext = &AVPla
 #pragma mark - Public methods
 
 - (void)setURL:(NSURL*)URL {
+    
     [_URL release];
     _URL = [URL copy];
     
-
     AVURLAsset *asset = [AVURLAsset URLAssetWithURL:_URL options:nil];
-    
     NSArray *requestedKeys = [NSArray arrayWithObjects:kTracksKey, kPlayableKey, nil];
-
+    
     [asset loadValuesAsynchronouslyForKeys:requestedKeys completionHandler:
-     ^{		 
-         dispatch_async( dispatch_get_main_queue(), 
+     ^{
+         dispatch_async( dispatch_get_main_queue(),
                         ^{
                             [self prepareToPlayAsset:asset withKeys:requestedKeys];
                         });
      }];
+    
+    
 }
 
 - (NSURL*)URL {
 	return _URL;
 }
+
 
 @end
