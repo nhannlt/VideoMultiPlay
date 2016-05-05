@@ -13,7 +13,7 @@
 
 @property (nonatomic, strong) UITableView *tableView;
 
-@property (nonatomic, strong) NSURL *videoURL;
+@property (nonatomic, strong) NSArray *videoURLs;
 
 @end
 
@@ -37,11 +37,22 @@
     self.listVideosCached = [NSCache new];
     [self.listVideosCached setCountLimit:15];
     self.pendingOperation = [[PendingOperation alloc] init];
-    self.videoURL = [NSURL URLWithString:@"http://av.voanews.com/Videoroot/Pangeavideo/2016/05/2/21/21fdad97-5a9a-400d-9c03-f7aa69328311.mp4"];
+    self.videoURLs = [NSArray arrayWithObjects:
+                      [NSURL URLWithString:@"http://av.voanews.com/Videoroot/Pangeavideo/2016/05/2/21/21fdad97-5a9a-400d-9c03-f7aa69328311_hq.mp4"],
+                      [NSURL URLWithString:@"http://av.voanews.com/Videoroot/Pangeavideo/2016/05/c/cb/cb1bcbee-36b7-4fec-a9d1-1d3ea7aecc01_hq.mp4"],
+                      [NSURL URLWithString:@"http://av.voanews.com/Videoroot/Pangeavideo/2016/05/2/27/27081582-02a5-4a59-832d-2de57957c571_hq.mp4"],
+                      [NSURL URLWithString:@"http://av.voanews.com/Videoroot/Pangeavideo/2016/05/1/17/17433308-68d9-45dc-8cd8-6f4e77d75a06_hq.mp4"],
+                      [NSURL URLWithString:@"http://av.voanews.com/Videoroot/Pangeavideo/2016/04/1/13/1322c8ef-882e-4232-9e45-6c258c74b015_hq.mp4"],
+                      [NSURL URLWithString:@"http://av.voanews.com/Videoroot/Pangeavideo/2016/04/e/e8/e895bb1c-a55e-46a8-90f8-fbb006454d81_hq.mp4"],
+                      [NSURL URLWithString:@"http://av.voanews.com/Videoroot/Pangeavideo/2016/05/a/a5/a5e5e467-5068-44cd-a1c2-044c356b5510_hq.mp4"],
+                      [NSURL URLWithString:@"http://av.voanews.com/Videoroot/Pangeavideo/2016/05/2/27/27081582-02a5-4a59-832d-2de57957c571_hq.mp4"],
+                      [NSURL URLWithString:@"http://av.voanews.com/Videoroot/Pangeavideo/2014/06/e/e1/e1204d1c-6b96-4240-9ca6-4e0270261b9f_hq.mp4"],
+                      [NSURL URLWithString:@"http://av.voanews.com/Videoroot/Pangeavideo/2014/06/b/be/be85630e-08ac-4d4c-9d90-27eec1771364_hq.mp4"],
+                      nil];
     
     // Set up UITableView
     CGRect frame = self.view.frame;
-    frame.origin.y = 20;
+    frame.origin.y = 10;
     self.tableView = [[UITableView alloc] initWithFrame:frame style:UITableViewStylePlain];
     [self.tableView registerNib:[UINib nibWithNibName:@"VideoTableViewCell" bundle:nil] forCellReuseIdentifier:@"VideoTableViewCellID"];
     self.tableView.delegate = self;
@@ -51,7 +62,7 @@
 
 #pragma -mark UITableView
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 15;
+    return 10;
 }
 
 
@@ -77,7 +88,7 @@
         [cell.positionLabel setText:[NSString stringWithFormat:@"%li",indexPath.row+1]];
         ViewAVPlayer *viewAVPlayer = [self.listVideosCached objectForKey:indexPath];
         if (!viewAVPlayer) {
-            [self downloadVideoStart:self.videoURL indexPath:indexPath];
+            [self downloadVideoStart:self.videoURLs[indexPath.row] indexPath:indexPath];
         } else {
             [cell setupVideoWithVideoPlayer:viewAVPlayer];
         }
@@ -88,8 +99,8 @@
 #pragma --mark -------
 - (void) downloadVideoStart:(NSURL*)videoURL indexPath:(NSIndexPath*)indexPath {
     
-    NSAssert(videoURL, @"Video URL can not be NIL");
-    NSAssert(indexPath, @"IndexPath can not be NIL");
+    NSAssert(videoURL, @"Video URL: __Nonnull");
+    NSAssert(indexPath, @"IndexPath: __Nonnull");
     
     // Return if video was cached.
     if ([self.listVideosCached objectForKey:indexPath]) {

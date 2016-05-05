@@ -13,7 +13,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.isPlaying = NO;
+        self.isPlaying = YES;
         self.isDownloaded = NO;
     }
     return self;
