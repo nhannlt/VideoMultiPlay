@@ -12,7 +12,7 @@
 
 @interface MainViewController : UIViewController
 
-@property (strong, nonatomic) NSCache *listVideosCached;
+@property (strong, nonatomic) NSMutableDictionary *videosMutalDictionary;
 
 @property (nonatomic, retain) PendingOperation *pendingOperation;
 

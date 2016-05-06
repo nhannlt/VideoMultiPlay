@@ -17,6 +17,7 @@
 @property (retain, nonatomic) IBOutlet ViewAVPlayer *viewAVPlayer;
 @property (retain, nonatomic) IBOutlet UILabel *positionLabel
 ;
+@property (retain, nonatomic) IBOutlet UIView *background;
 
 /**
  *  Description: Action Play or Pause video on Cell when user click to cell.

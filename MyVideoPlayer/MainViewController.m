@@ -34,8 +34,7 @@
  */
 - (void)setupViewAndData {
     // Setup data
-    self.listVideosCached = [NSCache new];
-    [self.listVideosCached setCountLimit:15];
+    self.videosMutalDictionary = [NSMutableDictionary new];
     self.pendingOperation = [[PendingOperation alloc] init];
     self.videoURLs = [NSArray arrayWithObjects:
                       [NSURL URLWithString:@"http://av.voanews.com/Videoroot/Pangeavideo/2016/05/2/21/21fdad97-5a9a-400d-9c03-f7aa69328311_hq.mp4"],
@@ -52,9 +51,11 @@
     
     // Set up UITableView
     CGRect frame = self.view.frame;
-    frame.origin.y = 10;
-    self.tableView = [[UITableView alloc] initWithFrame:frame style:UITableViewStylePlain];
+    frame.origin.y = 0;
+    self.tableView = [[UITableView alloc] initWithFrame:frame];
     [self.tableView registerNib:[UINib nibWithNibName:@"VideoTableViewCell" bundle:nil] forCellReuseIdentifier:@"VideoTableViewCellID"];
+    [self.tableView setBackgroundColor:[UIColor blackColor]];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self.view addSubview:self.tableView];
@@ -71,7 +72,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 250;
+    return 300;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -85,8 +86,8 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     VideoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"VideoTableViewCellID" forIndexPath:indexPath];
     if (cell) {
-        [cell.positionLabel setText:[NSString stringWithFormat:@"%i",indexPath.row+1]];
-        ViewAVPlayer *viewAVPlayer = [self.listVideosCached objectForKey:indexPath];
+        [cell.positionLabel setText:[NSString stringWithFormat:@"Video: %i",indexPath.row+1]];
+        ViewAVPlayer *viewAVPlayer = [self.videosMutalDictionary objectForKey:indexPath];
         if (!viewAVPlayer) {
             [self downloadVideoStart:self.videoURLs[indexPath.row] indexPath:indexPath];
         } else {
@@ -96,11 +97,12 @@
     return cell;
 }
 
+
 #pragma --mark -------
 - (void) downloadVideoStart:(nonnull NSURL*)videoURL indexPath:(nonnull NSIndexPath*)indexPath {
     
     // Return if video was cached.
-    if ([self.listVideosCached objectForKey:indexPath]) {
+    if ([self.videosMutalDictionary objectForKey:indexPath]) {
         return;
     }
     
@@ -119,7 +121,7 @@
         if (weakVideoPlayerNSOperation.cancelled) {
             return;
         }
-        [self.listVideosCached setObject:weakVideoPlayerNSOperation.viewAVPlayer forKey:indexPath];
+        [self.videosMutalDictionary setObject:weakVideoPlayerNSOperation.viewAVPlayer forKey:indexPath];
         dispatch_async(dispatch_get_main_queue(), ^{
             NSLog(@"Download: %i", indexPath.row);
             [self.pendingOperation.downloadsInProgress removeObjectForKey:indexPath];
@@ -144,12 +146,14 @@
     // When end decelerate, Reload visible cells and Resume all task in current queue
     [self cancelPendingOpenration];
     [self ressumeAllOperation];
+    [self processVideoOnCells];
 }
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
     if (decelerate == NO) {
         [self cancelPendingOpenration];
         [self ressumeAllOperation];
+        [self processVideoOnCells];
     }
 }
 
@@ -172,6 +176,7 @@
  *  Description: Cancel all task not excuted yet in invisible cells.
  */
 - (void)cancelPendingOpenration {
+   
     NSArray *listIndexPathsVisible = [self.tableView indexPathsForVisibleRows];
     NSMutableArray *listKeysAll = [NSMutableArray arrayWithArray:[self.pendingOperation.downloadsInProgress allKeys]];
     [listKeysAll removeObjectsInArray:listIndexPathsVisible];
@@ -181,5 +186,29 @@
     }
 }
 
+/**
+ *  Pause videos on invisible cells and Play videos on visible cells
+ */
+- (void)processVideoOnCells {
+    NSArray *listIndexPathsVisible = [self.tableView indexPathsForVisibleRows];
+    NSMutableArray *listAllViewPlayer = [NSMutableArray arrayWithArray:[self.videosMutalDictionary allKeys]];
+    [listAllViewPlayer removeObjectsInArray:listIndexPathsVisible];
+    
+    // Pause all videos not visible on screen.
+    for (NSIndexPath *indexPath in listAllViewPlayer) {
+        
+        ViewAVPlayer *mViewAVPlayer = [self.videosMutalDictionary objectForKey:indexPath];
+        [mViewAVPlayer pauseVideo];
+        mViewAVPlayer.videoData.isPlaying = NO;
+        
+    }
+    
+    // Play  videos  visible on screen.
+    for (NSIndexPath *indexPath in listIndexPathsVisible) {
+        ViewAVPlayer *mViewAVPlayer = [self.videosMutalDictionary objectForKey:indexPath];
+        [mViewAVPlayer playVideo];
+        mViewAVPlayer.videoData.isPlaying = YES;
+    }
+}
 
 @end

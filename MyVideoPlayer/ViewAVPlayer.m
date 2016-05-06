@@ -56,15 +56,6 @@
     self.asset = [AVURLAsset URLAssetWithURL:url options:nil];
     self.playerItem = [AVPlayerItem playerItemWithAsset:self.asset];
     
-    // Add neccessary observer.
-    [self.playerItem addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionNew context:NULL];
-    [self.playerItem addObserver:self forKeyPath:@"playbackBufferEmpty"
-                                         options:NSKeyValueObservingOptionNew
-                                         context:nil];
-    [self.playerItem addObserver:self forKeyPath:@"playbackLikelyToKeepUp"
-                         options:NSKeyValueObservingOptionNew
-                         context:nil];
-    
     // Re-play when reach to end by default nofitication
     self.player.actionAtItemEnd = AVPlayerActionAtItemEndNone;
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -79,37 +70,14 @@
     
 }
 
+/**
+ *  // Re-play when reach to end by default nofitication
+ *
+ *  @param notification contains AVPlayerItem
+ */
 - (void)playerItemDidReachEnd:(NSNotification *)notification {
     AVPlayerItem *p = [notification object];
     [p seekToTime:kCMTimeZero];
-}
-
-#pragma KVO
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
-{
-    
-    if (self.player.currentItem.status == AVPlayerItemStatusReadyToPlay)
-    {
-        [self.player play];
-        NSLog(@"Video is playing");
-    }
-    if (self.player.currentItem.status == AVPlayerItemStatusFailed) {
-        NSLog(@"Player item failed:%@",self.player.currentItem.error);
-    }
-    if (self.player.currentItem.status == AVPlayerItemStatusUnknown) {
-        NSLog(@"Player item unknown");
-    }
-    
-    if ([keyPath isEqualToString:@"playbackBufferEmpty"]) {
-        if (self.playerItem.playbackBufferEmpty) {
-            NSLog(@"Buffer Empty");
-        }
-    } else if ([keyPath isEqualToString:@"playbackLikelyToKeepUp"]) {
-        if (self.playerItem.playbackLikelyToKeepUp) {
-            NSLog(@"LikelyToKeepUp");
-        }
-    }
-    
 }
 
 - (void)dealloc {
