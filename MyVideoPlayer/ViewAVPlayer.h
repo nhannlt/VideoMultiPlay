@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AVFoundation/AVFoundation.h>
 #import "VideoData.h"
 
 @class AVPlayer;
@@ -17,6 +18,11 @@
 
 @property (nonatomic, strong) VideoData *videoData;
 
+@property (nonatomic, strong) AVPlayerLayer *playerLayer;
+
+@property (nonatomic, strong) AVURLAsset* asset;
+
+- (void)initPlayerWithURL:(NSURL*)url;
 /**
  *  Description: Set AVPlayer for player view.
  *

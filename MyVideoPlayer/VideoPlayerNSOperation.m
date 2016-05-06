@@ -30,10 +30,7 @@
     }
     
     // Step #2: Init Video Player.
-    AVPlayer *playerItem = [AVPlayer playerWithURL:self.videoUrl];
-    [self.viewAVPlayer setPlayer:playerItem];
-    [self.viewAVPlayer playVideo];
-    [self.viewAVPlayer setVideoFillMode:AVLayerVideoGravityResizeAspectFill];
+    [self.viewAVPlayer initPlayerWithURL:_videoUrl];
     
     // Check current task is in Cancelled status.
     // Maybe Operation was cancelled after excute step #2

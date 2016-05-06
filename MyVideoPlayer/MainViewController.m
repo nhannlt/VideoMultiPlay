@@ -9,7 +9,7 @@
 #import "MainViewController.h"
 #import "VideoTableViewCell.h"
 
-@interface MainViewController  () <UITableViewDelegate,UITableViewDataSource>
+@interface MainViewController  () <UITableViewDelegate,UITableViewDataSource, AVAssetResourceLoaderDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
 
@@ -85,7 +85,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     VideoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"VideoTableViewCellID" forIndexPath:indexPath];
     if (cell) {
-        [cell.positionLabel setText:[NSString stringWithFormat:@"%li",indexPath.row+1]];
+        [cell.positionLabel setText:[NSString stringWithFormat:@"%i",indexPath.row+1]];
         ViewAVPlayer *viewAVPlayer = [self.listVideosCached objectForKey:indexPath];
         if (!viewAVPlayer) {
             [self downloadVideoStart:self.videoURLs[indexPath.row] indexPath:indexPath];
@@ -97,10 +97,7 @@
 }
 
 #pragma --mark -------
-- (void) downloadVideoStart:(NSURL*)videoURL indexPath:(NSIndexPath*)indexPath {
-    
-    NSAssert(videoURL, @"Video URL: __Nonnull");
-    NSAssert(indexPath, @"IndexPath: __Nonnull");
+- (void) downloadVideoStart:(nonnull NSURL*)videoURL indexPath:(nonnull NSIndexPath*)indexPath {
     
     // Return if video was cached.
     if ([self.listVideosCached objectForKey:indexPath]) {
@@ -115,7 +112,6 @@
     // Init operation and excute task.
     VideoPlayerNSOperation *videoPlayerNSOperation = [[VideoPlayerNSOperation alloc] init];
     videoPlayerNSOperation.viewAVPlayer = [[ViewAVPlayer alloc] init];
-    [videoPlayerNSOperation.viewAVPlayer setFrame:CGRectMake((self.view.frame.size.width - 220)/2, 25, 220, 200)];
     [videoPlayerNSOperation initWithURL:videoURL];
     __unsafe_unretained VideoPlayerNSOperation *weakVideoPlayerNSOperation = videoPlayerNSOperation;
     
@@ -125,7 +121,7 @@
         }
         [self.listVideosCached setObject:weakVideoPlayerNSOperation.viewAVPlayer forKey:indexPath];
         dispatch_async(dispatch_get_main_queue(), ^{
-            NSLog(@"Download: %li", indexPath.row);
+            NSLog(@"Download: %i", indexPath.row);
             [self.pendingOperation.downloadsInProgress removeObjectForKey:indexPath];
             [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
         });
@@ -184,5 +180,6 @@
         [self.pendingOperation.downloadsInProgress removeObjectForKey:index];
     }
 }
+
 
 @end

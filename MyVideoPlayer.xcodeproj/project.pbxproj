@@ -24,7 +24,6 @@
 		6D094BB914BCF86E0097E75B /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D094BB714BCF86D0097E75B /* CoreMedia.framework */; };
 		6D094BBA14BCF86E0097E75B /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D094BB814BCF86D0097E75B /* MediaPlayer.framework */; };
 		6D094BBC14BCF8750097E75B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D094BBB14BCF8750097E75B /* AVFoundation.framework */; };
-		6D094BBE14BCF8BD0097E75B /* video_1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 6D094BBD14BCF8BD0097E75B /* video_1.mp4 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,7 +53,6 @@
 		6D094BB714BCF86D0097E75B /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		6D094BB814BCF86D0097E75B /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		6D094BBB14BCF8750097E75B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		6D094BBD14BCF8BD0097E75B /* video_1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video_1.mp4; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,7 +168,6 @@
 		6D094B9C14BCF4C70097E75B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				6D094BBD14BCF8BD0097E75B /* video_1.mp4 */,
 				6D094B9D14BCF4C70097E75B /* MyVideoPlayer-Info.plist */,
 				6D094B9E14BCF4C70097E75B /* InfoPlist.strings */,
 				6D094BA114BCF4C70097E75B /* main.m */,
@@ -231,7 +228,6 @@
 			files = (
 				6D094BA014BCF4C70097E75B /* InfoPlist.strings in Resources */,
 				698A18131CDB4F6000D41FE3 /* VideoTableViewCell.xib in Resources */,
-				6D094BBE14BCF8BD0097E75B /* video_1.mp4 in Resources */,
 				69E9D76B1CDA127D004D2975 /* Launch Screen.storyboard in Resources */,
 				69E9D7691CDA11B1004D2975 /* Main.storyboard in Resources */,
 			);
@@ -345,7 +341,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MyVideoPlayer/MyVideoPlayer-Prefix.pch";
 				INFOPLIST_FILE = "MyVideoPlayer/MyVideoPlayer-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.demo.multiplayvideo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -359,7 +355,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MyVideoPlayer/MyVideoPlayer-Prefix.pch";
 				INFOPLIST_FILE = "MyVideoPlayer/MyVideoPlayer-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.demo.multiplayvideo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
